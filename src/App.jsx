@@ -1,5 +1,5 @@
-import { useMemo } from 'react'
 import Spline from '@splinetool/react-spline'
+import Navbar from './components/Navbar'
 
 function Stat({ value, label }) {
   return (
@@ -19,37 +19,10 @@ function LogoMark() {
 }
 
 export default function App() {
-  const navItems = useMemo(() => [
-    { label: 'About', href: '#about' },
-    { label: 'Events', href: '#events' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Sponsors', href: '#sponsors' },
-  ], [])
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-[#071229] text-white">
       {/* Top nav */}
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/60 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="h-16 flex items-center justify-between">
-            <a href="#" className="flex items-center gap-3">
-              <LogoMark />
-              <span className="text-sm sm:text-base font-semibold tracking-wide">Blockchain Club</span>
-            </a>
-
-            <nav className="hidden md:flex items-center gap-6">
-              {navItems.map((n) => (
-                <a key={n.href} href={n.href} className="text-sm text-white/80 hover:text-white transition-colors">
-                  {n.label}
-                </a>
-              ))}
-              <a href="#join" className="inline-flex items-center rounded-md bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:from-blue-500 hover:to-cyan-400 transition-all">
-                Join
-              </a>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero with Spline cover */}
       <section className="relative pt-24">
